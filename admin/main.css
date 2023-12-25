@@ -1,0 +1,55 @@
+.navbar .nav-link {
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+nav ul li{
+    background: #d5f0e6;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+nav ul li:hover{
+    background-color: lightblue;
+}
+
+header .btn{
+    width: 100px;
+}
+
+
+nav .nav-link{
+    width: 80px;
+}
+
+
+
+.table-responsive{
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+.container .card-title{
+    font-weight: bold;
+}
+
+
+.table-responsive th{
+    background: #d5f0e6;
+    width: 200px;
+    border: 2px solid #ddd;
+    padding: 7px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+
+
+.table-responsive .btn{
+    width: 150px;
+}
+
+.button-container .btn{
+    font-weight: bolder;
+}

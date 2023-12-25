@@ -1,0 +1,24 @@
+.navbar .nav-link {
+    font-weight: bolder;
+}
+
+table th{
+    font-weight: bolder;
+    text-align: right;
+    
+}
+header .btn{
+    width: 100px;
+}
+
+nav h1{
+    margin: 7px;
+}
+
+.navbar h1{
+    color: white;
+}
+
+.button-container .btn{
+    font-weight: bolder;
+}

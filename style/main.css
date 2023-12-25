@@ -1,0 +1,86 @@
+.navbar .nav-link {
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+nav ul li{
+    background: #d5f0e6;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+nav ul li:hover{
+    background-color: lightblue;
+}
+
+header .btn{
+    width: 100px;
+}
+
+
+
+
+.table-responsive .btn{
+    width: 100px;
+}
+
+
+
+
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 2;
+}
+
+.floating-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    max-width: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 2;
+}
+
+
+
+#table-products {
+    width: 100%;
+    border-collapse: collapse; 
+}
+
+#table-products th{
+    width: 200px;
+    border: 2px solid #ddd;
+    padding: 7px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+#table-products td{
+    border: 2px solid #ddd;
+    padding: 7px;
+    text-align: center;
+
+}
+
+
+.table-responsive{
+    overflow-y: auto;
+    max-height: 600px;
+}
+.table-responsive img{
+    object-fit: cover;
+}
