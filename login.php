@@ -89,7 +89,7 @@ function logAction($userId, $actionType = null) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmers Assistant Web Service</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
 </head>
 <script src="js/validate.js"></script>

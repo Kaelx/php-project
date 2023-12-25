@@ -54,15 +54,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail = new PHPMailer;
 
         $mail->isSMTP();
-        $mail->Host='smtp.gmail.com';
+        $mail->Host='smtp.mail.com';
         $mail->Port=587;
         $mail->SMTPAuth=true;
         $mail->SMTPSecure='tls';
     
-        $mail->Username='000phpmailer@gmail.com';
-        $mail->Password='qbrz dvmt otmf sjly';
+        $mail->Username='';
+        $mail->Password='';
 
-        $mail->setFrom('000phpmailer@gmail.com', 'OTP Verification');
+        $mail->setFrom('mailer@mail.com', 'OTP Verification');
         $mail->addAddress($_POST["email"]);
     
         $mail->isHTML(true);
@@ -116,7 +116,7 @@ function logAction($userId, $actionType = null) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmers Assistant Web Service</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/register.css">
 </head>
