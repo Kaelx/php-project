@@ -59,10 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth=true;
         $mail->SMTPSecure='tls';
     
-        $mail->Username='j0hnm4rkcuyos@gmail.com';
-        $mail->Password='gdig jqsp hlxn ukwb';
+        $mail->Username='000phpmailer@gmail.com';
+        $mail->Password='qbrz dvmt otmf sjly';
 
-        $mail->setFrom('j0hnm4rkcuyos@gmail.com', 'OTP Verification');
+        $mail->setFrom('no-reply@mail.com', 'OTP Verification');
         $mail->addAddress($_POST["email"]);
     
         $mail->isHTML(true);
