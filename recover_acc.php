@@ -45,7 +45,7 @@ if (isset($_POST["recover"])) {
         $mail = new PHPMailer;
 
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'smtp.mail.com';
         $mail->Port = 587;
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
