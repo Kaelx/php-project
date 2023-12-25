@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: banned.php");
                 exit();
             } else {
-                echo '<script>alert("Invalid Account Type!");</script>';
+                echo '<script>alert("Something went wrong");</script>';
                 $email_value = $email;
             }
         } else {
