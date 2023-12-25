@@ -51,8 +51,8 @@ if (isset($_POST["recover"])) {
         $mail->SMTPSecure = 'tls';
 
         //account
-        $mail->Username='';
-        $mail->Password='';
+        $mail->Username='000phpmailer@gmail.com';
+        $mail->Password='qbrz dvmt otmf sjly';
 
         //send by
         $mail->setFrom('mailer@mail.com', 'Password Reset');
@@ -65,7 +65,7 @@ if (isset($_POST["recover"])) {
         $mail->Body = "<b>Dear User</b>
         <h3>We received a request to reset your password.</h3>
         <p>Kindly click the below link to reset your password</p>
-        http://localhost/aaa/PHP1.1/php_project/reset_psw.php";
+        http://localhost/aaa/PHP1.1/php_project/reset_psw.php"; //change this to correct path
 
         if (!$mail->send()) {
         ?>
