@@ -51,8 +51,8 @@ if (isset($_POST["recover"])) {
         $mail->SMTPSecure = 'tls';
 
         //account
-        $mail->Username='000phpmailer@gmail.com';
-        $mail->Password='qbrz dvmt otmf sjly';
+        $mail->Username='';
+        $mail->Password='';
 
         //send by
         $mail->setFrom('mailer@mail.com', 'Password Reset');
