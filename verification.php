@@ -2,6 +2,55 @@
 require_once 'controller/config.php';
 session_start();
 
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    if (isset($_SESSION["login_as"])) {
+        if ($_SESSION["login_as"] === "seller") {
+            header("location: main-seller.php");
+            exit;
+        } elseif ($_SESSION["login_as"] === "buyer") {
+            header("location: main-buyer.php");
+            exit;
+        } else {
+            header("location: unauth.php");
+            exit;
+        }
+    }
+}
+
+
+if(isset($_POST["resend"])) {
+    // Regenerate a new OTP
+    $newOtp = rand(100000,999999);
+    $_SESSION['otp'] = $newOtp;
+    
+    // Send the new OTP to the user's email (similar to your existing code)
+    $email = $_SESSION['mail'];
+    require "phpmailer/PHPMailerAutoload.php";
+    $mail = new PHPMailer;
+
+    $mail->isSMTP();
+    $mail->Host='smtp.gmail.com';
+    $mail->Port=587;
+    $mail->SMTPAuth=true;
+    $mail->SMTPSecure='tls';
+
+    $mail->Username='000phpmailer@gmail.com';
+    $mail->Password='qbrz dvmt otmf sjly';
+
+    $mail->setFrom('000phpmailer@gmail.com', 'OTP Verification');
+    $mail->addAddress($email);
+
+    $mail->isHTML(true);
+    $mail->Subject = "New Verification OTP";
+    $mail->Body = "<p>Dear user, </p> <h3>Your new verification OTP code is $newOtp <br></h3>";
+
+    if(!$mail->send()) {
+        echo '<script>alert("Failed to resend OTP. Please try again.");</script>';
+    } else {
+        echo '<script>alert("New OTP sent successfully.");</script>';
+    }
+}
+
 if(isset($_POST["verify"])){
     if(isset($_SESSION['otp']) && isset($_SESSION['mail'])){
         $otp = $_SESSION['otp'];
@@ -25,7 +74,6 @@ if(isset($_POST["verify"])){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,9 +87,6 @@ if(isset($_POST["verify"])){
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container">
         <a class="navbar-brand" href="#">Verification Account</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </div>
 </nav>
 
@@ -56,13 +101,15 @@ if(isset($_POST["verify"])){
                             <div class="form-group row">
                                 <label for="otp" class="col-md-4 col-form-label text-md-right">Enter OTP Code</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="otp" class="form-control" name="otp_code" required autofocus>
+                                    <input type="text" id="otp" class="form-control" name="otp_code" autofocus>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary mt-3" name="verify">Verify</button>
+                                    <!-- Resend button -->
+                                    <button type="submit" class="btn btn-secondary mt-3" name="resend">Resend OTP</button>
                                 </div>
                             </div>
                         </form>

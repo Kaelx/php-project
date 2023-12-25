@@ -9,7 +9,7 @@ function validateForm() {
 
 
     var namex = /^[a-zA-Z ]+$/;
-    var emailx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var emailx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     var addressx = /^[a-zA-Z0-9, .]+$/;
 
 
@@ -46,10 +46,8 @@ function validateForm() {
 function validatelogin() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-    var loginAsBuyer = document.getElementById("buyer").checked;
-    var loginAsSeller = document.getElementById("seller").checked;
 
-    if (email === "" || password === "" || (!loginAsBuyer && !loginAsSeller)) {
+    if (email === "" || password === "") {
         alert("Please fill in all fields.");
         return false;
     }

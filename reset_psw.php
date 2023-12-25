@@ -1,4 +1,20 @@
 <?php session_start() ;
+
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    if (isset($_SESSION["login_as"])) {
+        if ($_SESSION["login_as"] === "seller") {
+            header("location: main-seller.php");
+            exit;
+        } elseif ($_SESSION["login_as"] === "buyer") {
+            header("location: main-buyer.php");
+            exit;
+        }else{
+            header("location: unauth.php");
+            exit;
+        }
+    }
+}
+
 require_once 'controller/config.php';
 ?>
 
@@ -13,7 +29,7 @@ require_once 'controller/config.php';
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container">
         <a class="navbar-brand" href="#">Password Reset</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +50,7 @@ require_once 'controller/config.php';
                                 <label for="password" class="col-md-4 col-form-label text-md-right">New Password</label>
                                 <div class="col-md-6">
                                     <div class="input-group">
-                                        <input type="password" id="password" class="form-control" name="password" required autofocus>
+                                        <input type="password" id="password" class="form-control" name="password" minlength="8" required autofocus>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +98,7 @@ require_once 'controller/config.php';
         }else{
             ?>
             <script>
-                alert("<?php echo "Please try again"?>");
+                alert("<?php echo "Please use the same device and browser!"?>");
             </script>
             <?php
         }

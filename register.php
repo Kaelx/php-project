@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Username='000phpmailer@gmail.com';
         $mail->Password='qbrz dvmt otmf sjly';
 
-        $mail->setFrom('no-reply@mail.com', 'OTP Verification');
+        $mail->setFrom('000phpmailer@gmail.com', 'OTP Verification');
         $mail->addAddress($_POST["email"]);
     
         $mail->isHTML(true);
@@ -137,16 +137,16 @@ function logAction($userId, $actionType = null) {
 
                 <div class="form-group">
                     <label class="col-form-label" for="email">Email</label>
-                    <input type="email" class="form-control" placeholder="Input email" id="email" name="email" value="" autocomplete="off" required>
+                    <input type="email" class="form-control" placeholder="Input email" id="email" name="email" value="" autocomplete="on" required>
                 </div>
 
                 <div class="form-group">
                     <label class="col-form-label mt-4" for="password">Password</label>
-                    <input type="password" class="form-control" placeholder="Input password" id="password" name="password" value="" required >
+                    <input type="password" class="form-control" placeholder="Input password" id="password" name="password" value="" minlength="8" required >
                 </div>
                 <div class="form-group">
                     <label class="col-form-label mt-4" for="confirm_password">Confirm Password</label>
-                    <input type="password" class="form-control" placeholder="confirm password" id="confirm_password" name="confirm_password" value="" required>
+                    <input type="password" class="form-control" placeholder="confirm password" id="confirm_password" name="confirm_password" value="" minlength="8" required>
                 </div>
                 <div class="form-group">
                     <label class="col-form-label mt-4" for="firstname">Given Name</label>
@@ -171,7 +171,7 @@ function logAction($userId, $actionType = null) {
 
                 <div class="form-group">
                     <label class="col-form-label mt-4" for="address">Address</label>
-                    <input type="text" class="form-control" placeholder="Input address" id="address" name="address" value="" autocomplete="off" required>
+                    <input type="text" class="form-control" placeholder="Input address" id="address" name="address" value="" autocomplete="on" required>
                 </div>
                 <div class="form-group">
                     <label class="col-form-label mt-4" for="contact_number">Contact Number</label>

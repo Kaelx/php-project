@@ -1,6 +1,22 @@
 <?php
 
 session_start();
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    if (isset($_SESSION["login_as"])) {
+        if ($_SESSION["login_as"] === "seller") {
+            header("location: main-seller.php");
+            exit;
+        } elseif ($_SESSION["login_as"] === "buyer") {
+            header("location: main-buyer.php");
+            exit;
+        }else{
+            header("location: unauth.php");
+            exit;
+        }
+    }
+}
+
+
 if (isset($_POST["recover"])) {
     require_once 'controller/config.php';
     $email = $_POST["email"];
@@ -12,16 +28,11 @@ if (isset($_POST["recover"])) {
     if (mysqli_num_rows($sql) <= 0) {
 ?>
         <script>
-            alert("<?php echo "Sorry, no emails exists " ?>");
+            alert("<?php echo "Invalid, email does not exist! " ?>");
         </script>
     <?php
     } else if ($fetch["status"] == 0) {
-    ?>
-        <script>
-            alert("Sorry, your account must verify first, before you recover your password !");
-            window.location.replace("index.php");
-        </script>
-        <?php
+        echo '<script>alert("Account not verified yet. Please verify first!"); window.location.replace("verification.php");</script>';
     } else {
         // generate token by binaryhexa 
         $token = bin2hex(random_bytes(50));
@@ -44,7 +55,7 @@ if (isset($_POST["recover"])) {
         $mail->Password='qbrz dvmt otmf sjly';
 
         //send by
-        $mail->setFrom('no-reply@mail.com', 'Password Reset');
+        $mail->setFrom('000phpmailer@gmail.com', 'Password Reset');
 
         // get email from input
         $mail->addAddress($_POST["email"]);
@@ -88,7 +99,7 @@ if (isset($_POST["recover"])) {
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container">
         <a class="navbar-brand" href="#">Password Recovery</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,9 +119,9 @@ if (isset($_POST["recover"])) {
                     <div class="card-body">
                         <form action="#" method="POST" name="recover_psw">
                             <div class="form-group row">
-                                <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Email Address</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" name="email" required autofocus>
+                                    <input type="email" id="email_address" class="form-control" name="email" required autofocus>
                                 </div>
                             </div>
 

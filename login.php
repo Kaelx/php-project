@@ -33,11 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        if ($row["status"] == 0) {
-            echo '<script>alert("Please verify email account before login.");</script>';
-            $email_value = $email;
-        } elseif (password_verify($password, $row["password"])) {
-            if ($row["login_as"] === 'seller') {
+        if (password_verify($password, $row["password"])) {
+            if ($row["status"] == 0) {
+                echo '<script>alert("Account not verified yet. Please verify first!"); window.location.replace("verification.php");</script>';
+            }elseif ($row["login_as"] === 'seller') {
                 $_SESSION["loggedin"] = true;
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["login_as"] = $row["login_as"];
@@ -67,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email_value = $email;
         }
     } else {
-        echo '<script>alert("Invalid, Email not found!");</script>';
+        echo '<script>alert("Invalid, email does not exist!");</script>';
         $email_value = $email;
     }
 }
