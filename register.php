@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail = new PHPMailer;
 
         $mail->isSMTP();
-        $mail->Host='smtp.gmail.com';
+        $mail->Host='smtp.mail.com';
         $mail->Port=587;
         $mail->SMTPAuth=true;
         $mail->SMTPSecure='tls';
