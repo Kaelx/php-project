@@ -32,9 +32,6 @@ require_once 'controller/config.php';
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container">
         <a class="navbar-brand" href="#">Password Reset</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </div>
 </nav>
 
@@ -105,16 +102,3 @@ require_once 'controller/config.php';
     }
 
 ?>
-<script>
-    const toggle = document.getElementById('togglePassword');
-    const password = document.getElementById('password');
-
-    toggle.addEventListener('click', function(){
-        if(password.type === "password"){
-            password.type = 'text';
-        }else{
-            password.type = 'password';
-        }
-        this.classList.toggle('bi-eye');
-    });
-</script>

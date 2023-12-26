@@ -55,7 +55,7 @@ if (isset($_POST["recover"])) {
         $mail->Password='';
 
         //send by
-        $mail->setFrom('mailer@mail.com', 'Password Reset');
+        $mail->setFrom('sample@mail.com', 'Password Reset');
 
         // get email from input
         $mail->addAddress($_POST["email"]);
@@ -102,9 +102,6 @@ if (isset($_POST["recover"])) {
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container">
         <a class="navbar-brand" href="#">Password Recovery</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </div>
 </nav>
 

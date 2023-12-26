@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Username='';
         $mail->Password='';
 
-        $mail->setFrom('mailer@mail.com', 'OTP Verification');
+        $mail->setFrom('sample@mail.com', 'OTP Verification');
         $mail->addAddress($_POST["email"]);
     
         $mail->isHTML(true);

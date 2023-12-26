@@ -29,15 +29,15 @@ if(isset($_POST["resend"])) {
     $mail = new PHPMailer;
 
     $mail->isSMTP();
-    $mail->Host='smtp.gmail.com';
+    $mail->Host='smtp.mail.com';
     $mail->Port=587;
     $mail->SMTPAuth=true;
     $mail->SMTPSecure='tls';
 
-    $mail->Username='000phpmailer@gmail.com';
-    $mail->Password='qbrz dvmt otmf sjly';
+    $mail->Username='';
+    $mail->Password='';
 
-    $mail->setFrom('000phpmailer@gmail.com', 'OTP Verification');
+    $mail->setFrom('sample@mail.com', 'OTP Verification');
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -108,7 +108,6 @@ if(isset($_POST["verify"])){
                             <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary mt-3" name="verify">Verify</button>
-                                    <!-- Resend button -->
                                     <button type="submit" class="btn btn-secondary mt-3" name="resend">Resend OTP</button>
                                 </div>
                             </div>
