@@ -1,34 +1,35 @@
 <?php
 require_once 'controller/config.php';
 
-    session_start();
-    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-        if (isset($_SESSION["login_as"])) {
-            if ($_SESSION["login_as"] === "seller") {
-                header("location: main-seller.php");
-                exit;
-            } elseif ($_SESSION["login_as"] === "buyer") {
-                header("location: main-buyer.php");
-                exit;
-            }else{
-                header("location: unauth.php");
-                exit;
-            }
+session_start();
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    if (isset($_SESSION["login_as"])) {
+        if ($_SESSION["login_as"] === "seller") {
+            header("location: main-seller.php");
+            exit;
+        } elseif ($_SESSION["login_as"] === "buyer") {
+            header("location: main-buyer.php");
+            exit;
+        } else {
+            header("location: unauth.php");
+            exit;
         }
     }
-    
+}
+
 
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmers Assistant Web Service</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
 </head>
-<script src="js/validate.js"></script>
+
 <body>
     <header class="bg-success text-white text-center py-3">
         <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
@@ -47,4 +48,5 @@ require_once 'controller/config.php';
     </section>
 
 </body>
+
 </html>
