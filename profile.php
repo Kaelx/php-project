@@ -36,13 +36,14 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmers Assistant Web Service</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/icon.css">
 </head>
 
 <body>
@@ -50,8 +51,8 @@ $conn->close();
         <div class="container d-flex justify-content-between align-items-center">
             <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
             <div>
-                <a href="index.php" class="btn btn-outline-light m-2">HOME</a>
-                <a href="logout.php" class="btn btn-outline-light m-2">Logout</a>
+                <a href="index.php" class="btn btn-outline-light m-2"><span class="material-icons">home</span> HOME</a>
+                <a href="logout.php" class="btn btn-outline-light m-2"><span class="material-icons">logout</span> Logout</a>
             </div>
         </div>
     </header>
@@ -113,13 +114,8 @@ $conn->close();
                 </div>
             </div>
         </div>
+        <div class="text-center mt-3"><a href="update.php" class="btn btn-warning btn-lg"><span class="material-icons">manage_accounts</span> Update Profile</a></div>
     </div>
-
-
-
-
-
-
 </body>
 
 </html>

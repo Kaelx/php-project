@@ -91,6 +91,8 @@ function logAction($userId, $actionType = null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/icon.css">
 </head>
 <script src="js/validate.js"></script>
 <body>
@@ -105,18 +107,18 @@ function logAction($userId, $actionType = null) {
             </div>
             <form class="m-3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                 <div class="form-group">
-                    <label for="email" class="form-label mt-4">Email address</label>
+                    <label for="email" class="form-label mt-4"><i class="material-icons">email</i> Email address</label>
                     <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="<?php echo $email_value; ?>" placeholder="Enter email" autocomplete="on" required autofocus>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="form-label mt-4">Password</label>
+                    <label for="password" class="form-label mt-4"><i class="material-icons">lock</i> Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="on" required>
                 </div>
 
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg">LOGIN</button>
-                    <p class="mt-3">Don't have an account? <a class="text-success signup-link" href="register.php">Sign Up</a></p>
-                    <a class="text-success" href="recover_acc.php">Forgot Password?</a>
+                    <button type="submit" class="btn btn-primary"><i class="material-icons">login</i> LOGIN</button>
+                    <p class="mt-3">Don't have an account? <a class="text-success signup-link" href="register.php">Sign Up <i class="material-icons">person_add</i> </a></p>
+                    <a class="text-success" href="recover_acc.php">Forgot Password <i class="material-icons">help</i></a>
                 </div>
             </form>
         </div>

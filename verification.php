@@ -34,8 +34,8 @@ if(isset($_POST["resend"])) {
     $mail->SMTPAuth=true;
     $mail->SMTPSecure='tls';
 
-    $mail->Username='';
-    $mail->Password='';
+    $mail->Username='';    //email
+    $mail->Password='';    //16 keys
 
     $mail->setFrom('sample@mail.com', 'OTP Verification');
     $mail->addAddress($email);
@@ -81,6 +81,8 @@ if(isset($_POST["verify"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification Account</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/icon.css">
 </head>
 <body>
 
@@ -93,14 +95,14 @@ if(isset($_POST["verify"])){
 <main class="login-form mt-4">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6 mt-3">
                 <div class="card">
-                    <div class="card-header">Verify Your Account</div>
+                    <div class="card-header"><span class="material-icons">privacy_tip</span> Verify Your Account</div>
                     <div class="card-body">
                         <form action="#" method="POST">
                             <div class="form-group row">
                                 <label for="otp" class="col-md-4 col-form-label text-md-right">Enter OTP Code</label>
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input type="text" id="otp" class="form-control" name="otp_code" autofocus>
                                 </div>
                             </div>

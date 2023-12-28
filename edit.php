@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
         $updateProduct = "UPDATE products SET product_quantity = ?, product_price = ? WHERE id = ?";
         $stmt = $conn->prepare($updateProduct);
         $stmt->bind_param("ddi", $quantity, $price, $pid);
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             header('Location: index.php');
             exit;
         }
@@ -30,34 +30,30 @@ if (isset($_GET['id'])) {
     $stmt->bind_result($productName, $productImage, $quantity, $price);
     $stmt->fetch();
     $stmt->close();
-}else{
+} else {
     header('Location: unauth.php');
     exit;
-
 }
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmers Assistant Web Service</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/icon.css">
 </head>
-<body>
 
-    <header class="bg-success text-white text-center py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
-            <div>
-                <a href="profile.php" class="btn btn-outline-light m-2">Profile</a>
-                <a href="logout.php" class="btn btn-outline-light m-2">Logout</a>
-            </div>
-        </div>
-    </header>
+<body>
+    <?php
+    include 'view/header.php';
+    ?>
 
     <div class="container mt-4 ">
         <h3 class="mb-4 text-center">EDIT PRODUCT</h3>
@@ -90,7 +86,8 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </div>
-    
+
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

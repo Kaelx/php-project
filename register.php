@@ -59,8 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth=true;
         $mail->SMTPSecure='tls';
     
-        $mail->Username='';
-        $mail->Password='';
+        $mail->Username='';  // email
+        $mail->Password='';  // 16 keys
 
         $mail->setFrom('sample@mail.com', 'OTP Verification');
         $mail->addAddress($_POST["email"]);
@@ -119,6 +119,8 @@ function logAction($userId, $actionType = null) {
     <title>Sign up</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/register.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/icon.css">
 </head>
 <script src="js/validate.js"></script>
 
@@ -160,8 +162,8 @@ function logAction($userId, $actionType = null) {
                     <label class="col-form-label mt-4" for="gender">Gender</label>
                     <select id="gender" name="gender" class="form-control" required>
                         <option value="" disabled selected>-- Please Select --</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -187,9 +189,9 @@ function logAction($userId, $actionType = null) {
                     </select>
                 </div>
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
-                    <p class="mt-3">Already have an account? <a class="text-success signup-link" href="login.php">Login</a></p>
+                    <button type="submit" class="btn btn-success"><i class="material-icons">check_circle</i> Submit</button>
+                    <button type="reset" class="btn btn-secondary"><i class="material-icons">autorenew</i> Reset</button>
+                    <p class="mt-3">Already have an account? <a class="text-success signup-link" href="login.php">Login <i class="material-icons">account_box</i></a></p>
                 </div>
 
             </form>

@@ -88,19 +88,16 @@ $conn->close();
     <title>Farmers Assistant Web Service</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/icon.css">
 </head>
 
 <body>
 
-    <header class="bg-success text-white text-center py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
-            <div>
-                <a href="profile.php" class="btn btn-outline-light m-2">Profile</a>
-                <a href="logout.php" class="btn btn-outline-light m-2">Logout</a>
-            </div>
-        </div>
-    </header>
+<?php
+    include 'view/header.php';
+    
+    ?>
 
     <nav class="navbar navbar-expand-lg bg-info">
         <div class="container">

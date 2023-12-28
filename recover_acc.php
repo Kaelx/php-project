@@ -51,8 +51,8 @@ if (isset($_POST["recover"])) {
         $mail->SMTPSecure = 'tls';
 
         //account
-        $mail->Username='';
-        $mail->Password='';
+        $mail->Username='';  //email
+        $mail->Password='';  //16 keys
 
         //send by
         $mail->setFrom('sample@mail.com', 'Password Reset');
@@ -96,6 +96,8 @@ if (isset($_POST["recover"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/icon.css">
 </head>
 <body>
 
@@ -108,7 +110,7 @@ if (isset($_POST["recover"])) {
 <main class="login-form mt-md-4">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-5 mt-3">
                 <div class="card">
                     <div class="card-header">
                         Password Recovery
@@ -116,8 +118,8 @@ if (isset($_POST["recover"])) {
                     <div class="card-body">
                         <form action="#" method="POST" name="recover_psw">
                             <div class="form-group row">
-                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Email Address</label>
-                                <div class="col-md-6">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right"><span class="material-icons">email</span> Email Address</label>
+                                <div class="col-md-8">
                                     <input type="email" id="email_address" class="form-control" name="email" required autofocus>
                                 </div>
                             </div>
