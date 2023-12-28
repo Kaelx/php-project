@@ -92,6 +92,7 @@ function logAction($userId, $actionType = null) {
     <title>Login</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
 </head>
+<script src="js/validate.js"></script>
 <body>
     <header class="bg-success text-white text-center py-3">
         <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
@@ -102,14 +103,14 @@ function logAction($userId, $actionType = null) {
             <div class="card-header">
                 <h4>Login</h4>
             </div>
-            <form class="m-3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" id="loginForm">
+            <form class="m-3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                 <div class="form-group">
                     <label for="email" class="form-label mt-4">Email address</label>
-                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="<?php echo $email_value; ?>" placeholder="Enter email" autocomplete="on">
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="<?php echo $email_value; ?>" placeholder="Enter email" autocomplete="on" required autofocus>
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label mt-4">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="on">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="on" required>
                 </div>
 
                 <div class="text-center mt-4">
@@ -122,6 +123,4 @@ function logAction($userId, $actionType = null) {
     </div>
 
 </body>
-
-<script src="js/validate.js"></script>
 </html>
