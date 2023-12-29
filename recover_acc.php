@@ -45,17 +45,17 @@ if (isset($_POST["recover"])) {
         $mail = new PHPMailer;
 
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'smtp.mail.com';
         $mail->Port = 587;
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
 
         //account
-        $mail->Username='000phpmailer@gmail.com';  //email
-        $mail->Password='qbrz dvmt otmf sjly';  //16 keys
+        $mail->Username='';  //email
+        $mail->Password='';  //16 keys
 
         //send by
-        $mail->setFrom('000phpmailer@gmail.com', 'Password Reset');
+        $mail->setFrom('sample@mail.com', 'Password Reset');
 
         // get email from input
         $mail->addAddress($_POST["email"]);

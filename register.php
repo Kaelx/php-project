@@ -54,15 +54,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail = new PHPMailer;
 
         $mail->isSMTP();
-        $mail->Host='smtp.gmail.com';
+        $mail->Host='smtp.mail.com';
         $mail->Port=587;
         $mail->SMTPAuth=true;
         $mail->SMTPSecure='tls';
     
-        $mail->Username='000phpmailer@gmail.com';   //email
-        $mail->Password='qbrz dvmt otmf sjly';    // 16 keys
+        $mail->Username='';   //email
+        $mail->Password='';    // 16 keys
 
-        $mail->setFrom('000phpmailer@gmail.com', 'OTP Verification');
+        $mail->setFrom('sample@mail.com', 'OTP Verification');
         $mail->addAddress($_POST["email"]);
     
         $mail->isHTML(true);
@@ -123,7 +123,7 @@ function logAction($userId, $actionType = null) {
     <link rel="stylesheet" href="style/icon.css">
 </head>
 <script src="js/google-map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr8QQLheQpIlMvXQfEf_0AKOULg7RhsLY&libraries=places&callback=initialize"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=[API_HERE]&libraries=places&callback=initialize"></script>
 <script src="js/validate.js"></script>
 
 <body>
