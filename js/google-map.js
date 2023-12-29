@@ -3,5 +3,4 @@ function initialize() {
     var autocomplete = new google.maps.places.Autocomplete(input);
 }
 
-// Ensure the initialize function is in the global scope
 window.initialize = initialize;
