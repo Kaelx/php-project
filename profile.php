@@ -52,7 +52,7 @@ $conn->close();
             <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
             <div>
                 <a href="index.php" class="btn btn-outline-light m-2"><span class="material-icons">home</span> HOME</a>
-                <a href="logout.php" class="btn btn-outline-light m-2"><span class="material-icons">logout</span> Logout</a>
+                <a href="controller/logout.php" class="btn btn-outline-light m-2"><span class="material-icons">logout</span> Logout</a>
             </div>
         </div>
     </header>
@@ -70,7 +70,7 @@ $conn->close();
 
     <div class="container mt-3">
         <div class="row justify-content-center">
-            <div class="col-md-5">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="mb-0">My Profile</h4>
@@ -78,7 +78,7 @@ $conn->close();
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-hover">
-                                <tbody>
+                            <tbody>
                                     <tr class="table-light">
                                         <th scope="row">Name:</th>
                                         <td> <?php echo $userData['firstname'] . ' ' . $userData['lastname']; ?></td>
@@ -111,11 +111,18 @@ $conn->close();
                             </table>
                         </div>
                     </div>
+                    <div class="text-center m-4">
+                        <a href="update.php" class="btn btn-primary">
+                            <span class="material-icons">manage_accounts</span> Update Profile
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="text-center mt-3"><a href="update.php" class="btn btn-warning btn-lg"><span class="material-icons">manage_accounts</span> Update Profile</a></div>
     </div>
+
+
+
 </body>
 
 </html>

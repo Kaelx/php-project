@@ -33,16 +33,17 @@ $conn->close();
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ADMIN</title>
     <link rel="stylesheet" href="../style/bootstrap.min.css">
     <link rel="stylesheet" href="../style/profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../style/icon.css">
 </head>
 
 <body>
@@ -50,14 +51,14 @@ $conn->close();
         <div class="container d-flex justify-content-between align-items-center">
             <h1><a href="index.php" class="text-decoration-none text-white">ADMIN</a></h1>
             <div class="button-container">
-                <a href="index.php" class="btn btn-outline-light m-2">HOME</a>
-                <a href="../logout.php" class="btn btn-outline-light m-2">Logout</a>
+                <a href="index.php" class="btn btn-outline-light m-2"><span class="material-icons">home</span> HOME</a>
+                <a href="../controller/logout.php" class="btn btn-outline-light m-2"><span class="material-icons">logout</span> Logout</a>
             </div>
         </div>
     </header>
 
     <nav class="navbar navbar-expand-lg bg-dark text-center">
-        <div class="container ">
+        <div class="container">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <h1 class="nav-link">USER PAGE</h1>
@@ -66,10 +67,9 @@ $conn->close();
         </div>
     </nav>
 
-
     <div class="container mt-3">
         <div class="row justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="mb-0">My Profile</h4>
@@ -110,16 +110,11 @@ $conn->close();
                             </table>
                         </div>
                     </div>
+                    <div class="text-center m-4"><a href="update.php" class="btn btn-primary"><span class="material-icons">manage_accounts</span> Update Profile</a></div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
 </body>
 
 </html>

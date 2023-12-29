@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once 'controller/config.php';
+require_once 'config.php';
 
 
 $userType = isset($_SESSION["login_as"]) ? $_SESSION["login_as"] : '';
@@ -10,7 +10,7 @@ logAction($_SESSION["id"], 'has logged out', $userType);
 $_SESSION = array();
 session_destroy();
 
-header("Location: index.php");
+header("Location: ../index.php");
 exit();
 
 function logAction($userId, $actionType = null, $userType = null) {

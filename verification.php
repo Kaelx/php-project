@@ -18,46 +18,47 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 
-if(isset($_POST["resend"])) {
-    // Regenerate a new OTP
-    $newOtp = rand(100000,999999);
-    $_SESSION['otp'] = $newOtp;
-    
-    // Send the new OTP to the user's email (similar to your existing code)
-    $email = $_SESSION['mail'];
-    require "phpmailer/PHPMailerAutoload.php";
-    $mail = new PHPMailer;
+if (isset($_POST["resend"])) {
+    if (isset($_SESSION['otp']) && isset($_SESSION['mail'])) {
+        $newOtp = rand(100000, 999999);
+        $_SESSION['otp'] = $newOtp;
+        $email = $_SESSION['mail'];
+        require "phpmailer/PHPMailerAutoload.php";
+        $mail = new PHPMailer;
 
-    $mail->isSMTP();
-    $mail->Host='smtp.mail.com';
-    $mail->Port=587;
-    $mail->SMTPAuth=true;
-    $mail->SMTPSecure='tls';
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mail.com';
+        $mail->Port = 587;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
 
-    $mail->Username='';    //email
-    $mail->Password='';    //16 keys
+        $mail->Username = '';    //email
+        $mail->Password = '';    //16 keys
 
-    $mail->setFrom('sample@mail.com', 'OTP Verification');
-    $mail->addAddress($email);
+        $mail->setFrom('sample@mail.com', 'OTP Verification');
+        $mail->addAddress($email);
 
-    $mail->isHTML(true);
-    $mail->Subject = "New Verification OTP";
-    $mail->Body = "<p>Dear user, </p> <h3>Your new verification OTP code is $newOtp <br></h3>";
+        $mail->isHTML(true);
+        $mail->Subject = "New Verification OTP";
+        $mail->Body = "<p>Dear user, </p> <h3>Your new verification OTP code is $newOtp <br></h3>";
 
-    if(!$mail->send()) {
-        echo '<script>alert("Failed to resend OTP. Please try again.");</script>';
+        if (!$mail->send()) {
+            echo '<script>alert("Failed to resend OTP. Please try again.");</script>';
+        } else {
+            echo '<script>alert("New OTP sent successfully.");</script>';
+        }
     } else {
-        echo '<script>alert("New OTP sent successfully.");</script>';
+        echo '<script>alert("Session variables not set. Please try again.");</script>';
     }
 }
 
-if(isset($_POST["verify"])){
-    if(isset($_SESSION['otp']) && isset($_SESSION['mail'])){
+if (isset($_POST["verify"])) {
+    if (isset($_SESSION['otp']) && isset($_SESSION['mail'])) {
         $otp = $_SESSION['otp'];
         $email = $_SESSION['mail'];
         $otp_code = $_POST['otp_code'];
 
-        if($otp != $otp_code){
+        if ($otp != $otp_code) {
             echo '<script>alert("Invalid OTP code. Please try again.");</script>';
         } else {
             $updateStatusQuery = "UPDATE users SET status = 1 WHERE email = ?";
@@ -76,6 +77,7 @@ if(isset($_POST["verify"])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,42 +86,44 @@ if(isset($_POST["verify"])){
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style/icon.css">
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
-    <div class="container">
-        <a class="navbar-brand" href="#">Verification Account</a>
-    </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="#">Verification Account</a>
+        </div>
+    </nav>
 
-<main class="login-form mt-4">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 mt-3">
-                <div class="card">
-                    <div class="card-header"><span class="material-icons">privacy_tip</span> Verify Your Account</div>
-                    <div class="card-body">
-                        <form action="#" method="POST">
-                            <div class="form-group row">
-                                <label for="otp" class="col-md-4 col-form-label text-md-right">Enter OTP Code</label>
-                                <div class="col-md-8">
-                                    <input type="text" id="otp" class="form-control" name="otp_code" autofocus>
+    <main class="login-form mt-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 mt-3">
+                    <div class="card">
+                        <div class="card-header"><span class="material-icons">privacy_tip</span> Verify Your Account</div>
+                        <div class="card-body">
+                            <form action="#" method="POST">
+                                <div class="form-group row">
+                                    <label for="otp" class="col-md-4 col-form-label text-md-right">Enter OTP Code</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="otp" class="form-control" name="otp_code" autofocus>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary mt-3" name="verify">Verify</button>
-                                    <button type="submit" class="btn btn-secondary mt-3" name="resend">Resend OTP</button>
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary mt-3" name="verify">Verify</button>
+                                        <button type="submit" class="btn btn-secondary mt-3" name="resend">Resend</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
 </body>
+
 </html>

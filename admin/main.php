@@ -12,7 +12,7 @@ if ($_SESSION["login_as"] !== 'admin') {
 
 
 $usersCount = usersCount($conn);
-$productsCount = productsCount($conn);
+$bannedCount = bannedCount($conn);
 $soldProductsCount = soldProductsCount($conn);
 $totalSales = totalSales($conn);
 $users = getUsers($conn);
@@ -26,12 +26,12 @@ function usersCount($conn) {
     return $usersCount;
 }
 
-function productsCount($conn) {
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM products;");
+function bannedCount($conn) {
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM users where login_as = 'banned';");
     $stmt->execute();
     $result = $stmt->get_result();
-    $productsCount = $result->fetch_row()[0];
-    return $productsCount;
+    $bannedCount = $result->fetch_row()[0];
+    return $bannedCount;
 }
 
 function soldProductsCount($conn) {
@@ -68,16 +68,19 @@ function getUsers($conn) {
     <title>ADMIN</title>
     <link rel="stylesheet" href="../style/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../style/icon.css">
 </head>
 <script src="validate.js"></script>
-<body>
 
+
+<body>
     <header class="bg-warning text-white text-center py-3">
         <div class="container d-flex justify-content-between align-items-center">
             <h1><a href="index.php" class="text-decoration-none text-white">ADMIN</a></h1>
             <div class="button-container">
-                <a href="profile.php" class="btn btn-outline-light m-2">Profile</a>
-                <a href="../logout.php" class="btn btn-outline-light m-2">Logout</a>
+                <a href="profile.php" class="btn btn-outline-light m-2"><span class="material-icons">account_circle</span> Profile</a>
+                <a href="../controller/logout.php" class="btn btn-outline-light m-2"><span class="material-icons">logout</span> Logout</a>
             </div>
         </div>
     </header>
@@ -101,8 +104,8 @@ function getUsers($conn) {
     </nav>
 
     <div class="container mt-4">
-    <div class="card p-2">
-        <div class="row">
+        <div class="card p-2">
+            <div class="row">
             <div class="col-lg-3 col-md-6 mb-3">
                 <div class="card">
                     <div class="card-body text-white bg-primary m-2">
@@ -114,8 +117,8 @@ function getUsers($conn) {
             <div class="col-lg-3 col-md-6 mb-3">
                 <div class="card">
                     <div class="card-body text-white bg-success m-2">
-                        <h5 class="card-title">Products</h5>
-                        <p class="card-text display-5 text-center"><?php echo $productsCount; ?></p>
+                        <h5 class="card-title">Banned</h5>
+                        <p class="card-text display-5 text-center"><?php echo $bannedCount; ?></p>
                     </div>
                 </div>
             </div>
@@ -135,17 +138,15 @@ function getUsers($conn) {
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </div>
-</div>
 
-
-
-<div class="container mt-5">
-    <div class="card p-2">
-        <h2 class="text-center mb-4">Users</h2>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-sm">
+    <div class="container mt-5">
+        <div class="card p-2">
+            <h2 class="text-center mb-4">Users</h2>
+            <div class="table-responsive">
+            <table class="table table-hover table-bordered table-sm">
                 <thead class="thead-dark text-center">
                     <tr>
                         <th scope="col">ID</th>
@@ -169,13 +170,11 @@ function getUsers($conn) {
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
-    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
+
+
+<script src="../js/bootstrap.bundle.min.js"></script>
 </html>

@@ -78,6 +78,8 @@ function logAction($userId, $actionType = null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN LOGIN</title>
     <link rel="stylesheet" href="../style/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../style/icon.css">
 </head>
 <script src="validate.js"></script>
 <body>
@@ -85,28 +87,27 @@ function logAction($userId, $actionType = null) {
         <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
     </header>
 
-
-<div class="container">
-    <div class="container mt-4 mb-4 col-md-6 card">
-        <div class="card-header">
-            <h4>Admin Login</h4>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 mt-4 mb-4 card">
+                <div class="card-header">
+                    <h4>Admin Login</h4>
+                </div>
+                <form class="m-3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" onsubmit="return validatelogin()">
+                    <div class="form-group">
+                        <label for="email" class="form-label mt-4"><i class="material-icons">email</i> Email address</label>
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="<?php echo $email_value; ?>" placeholder="Enter email" autocomplete="on">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label mt-4"><i class="material-icons">lock</i> Password</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="on">
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg"><i class="material-icons">login</i> LOGIN</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <form class="m-3" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" onsubmit="return validatelogin()">
-            <div class="form-group">
-                <label for="email" class="form-label mt-4">Email address</label>
-                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="<?php echo $email_value; ?>" placeholder="Enter email" autocomplete="on">
-            </div>
-            <div class="form-group">
-                <label for="password" class="form-label mt-4">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="on">
-            </div>
-            <div class="text-center mt-4">
-                <button type="submit" class="btn btn-primary btn-lg">LOGIN</button>
-            </div>
-        </form>
     </div>
-</div>
-
-
 </body>
 </html>

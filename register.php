@@ -59,8 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth=true;
         $mail->SMTPSecure='tls';
     
-        $mail->Username='';  // email
-        $mail->Password='';  // 16 keys
+        $mail->Username='';   //email
+        $mail->Password='';    // 16 keys
 
         $mail->setFrom('sample@mail.com', 'OTP Verification');
         $mail->addAddress($_POST["email"]);
@@ -122,6 +122,8 @@ function logAction($userId, $actionType = null) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style/icon.css">
 </head>
+<script src="js/google-map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr8QQLheQpIlMvXQfEf_0AKOULg7RhsLY&libraries=places&callback=initialize"></script>
 <script src="js/validate.js"></script>
 
 <body>
@@ -129,14 +131,14 @@ function logAction($userId, $actionType = null) {
         <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
     </header>
 
-
     <div class="container">
-        <div class="container mt-4 mb-4 col-md-6 card">
-            <div class="card-header">
-                <h4>REGISTER FORM</h4>
-            </div>
-            <form class="m-3" action="<?php echo ($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="return validateForm()">
-
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 mt-4 mb-4 card">
+                <div class="card-header">
+                    <h4>REGISTER FORM</h4>
+                </div>
+                <form class="m-3" action="<?php echo ($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="return validateForm()">
+                    
                 <div class="form-group">
                     <label class="col-form-label" for="email">Email</label>
                     <input type="email" class="form-control" placeholder="Input email" id="email" name="email" value="" autocomplete="on" required>
@@ -193,13 +195,9 @@ function logAction($userId, $actionType = null) {
                     <button type="reset" class="btn btn-secondary"><i class="material-icons">autorenew</i> Reset</button>
                     <p class="mt-3">Already have an account? <a class="text-success signup-link" href="login.php">Login <i class="material-icons">account_box</i></a></p>
                 </div>
-
-            </form>
-
+                </form>
+            </div>
         </div>
     </div>
-
-
 </body>
-
 </html>

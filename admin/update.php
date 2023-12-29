@@ -6,12 +6,12 @@ if (!isset($_SESSION["loggedin"]) || empty($_SESSION["loggedin"])) {
     exit;
 }
 
-if ($_SESSION["login_as"] === 'admin') {
+if ($_SESSION["login_as"] !== 'admin') {
     header("location: unauth.php");
     exit;
 }
 
-require_once 'controller/config.php';
+require_once '../controller/config.php';
 
 $id = $_SESSION["id"];
 
@@ -61,16 +61,16 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmers Assistant Web Service - Update Profile</title>
-    <link rel="stylesheet" href="style/bootstrap.min.css">
-    <link rel="stylesheet" href="style/profile.css">
+    <link rel="stylesheet" href="../style/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/profile.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="style/icon.css">
+    <link rel="stylesheet" href="../style/icon.css">
 </head>
 
 <body>
-    <header class="bg-success text-white text-center py-3">
+    <header class="bg-warning text-white text-center py-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <h1><a href="index.php" class="text-decoration-none text-white">Farmers Assistant Web Service</a></h1>
+            <h1><a href="index.php" class="text-decoration-none text-white">ADMIN</a></h1>
             <div>
                 <a href="index.php" class="btn btn-outline-light m-2"><span class="material-icons">home</span> HOME</a>
                 <a href="logout.php" class="btn btn-outline-light m-2"><span class="material-icons">logout</span> Logout</a>
@@ -78,11 +78,11 @@ $conn->close();
         </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg bg-info text-center">
+    <nav class="navbar navbar-expand-lg bg-dark text-center">
         <div class="container">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <h1 class="nav-link">USER PAGE</h1>
+                    <h1 class="nav-link text-white">USER PAGE</h1>
                 </li>
             </ul>
         </div>
@@ -140,6 +140,6 @@ $conn->close();
         </div>
     </div>
 </body>
-<script src="js/update.js"></script>
+<script src="../js/update.js"></script>
 
 </html>

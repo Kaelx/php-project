@@ -30,6 +30,8 @@ $conn->close();
     <title>ADMIN</title>
     <link rel="stylesheet" href="../style/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../style/icon.css">
 </head>
 <body>
 
@@ -37,8 +39,8 @@ $conn->close();
         <div class="container d-flex justify-content-between align-items-center">
             <h1><a href="index.php" class="text-decoration-none text-white">ADMIN</a></h1>
             <div class="button-container">
-                <a href="profile.php" class="btn btn-outline-light m-2">Profile</a>
-                <a href="../logout.php" class="btn btn-outline-light m-2">Logout</a>
+                <a href="profile.php" class="btn btn-outline-light m-2"><span class="material-icons">account_circle</span> Profile</a>
+                <a href="../controller/logout.php" class="btn btn-outline-light m-2"><span class="material-icons">logout</span> Logout</a>
             </div>
         </div>
     </header>

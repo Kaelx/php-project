@@ -110,7 +110,7 @@ if (isset($_POST["recover"])) {
 <main class="login-form mt-md-4">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-5 mt-3">
+            <div class="col-md-6 col-lg-5 mt-3">
                 <div class="card">
                     <div class="card-header">
                         Password Recovery
@@ -125,7 +125,7 @@ if (isset($_POST["recover"])) {
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary mt-3" name="recover">Recover</button>
                                     <a href="login.php" class="btn btn-secondary mt-3">Cancel</a>
                                 </div>
@@ -137,6 +137,7 @@ if (isset($_POST["recover"])) {
         </div>
     </div>
 </main>
+
 </body>
 </html>
 

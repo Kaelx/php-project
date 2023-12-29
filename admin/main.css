@@ -51,5 +51,6 @@ nav .nav-link{
 }
 
 .button-container .btn{
+    width: 110px;
     font-weight: bolder;
 }
