@@ -27,15 +27,15 @@ if (isset($_POST["resend"])) {
         $mail = new PHPMailer;
 
         $mail->isSMTP();
-        $mail->Host = 'smtp.mail.com';
+        $mail->Host = 'smtp.gmail.com';
         $mail->Port = 587;
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
 
-        $mail->Username = '';    //email
-        $mail->Password = '';    //16 keys
+        $mail->Username = '000phpmailer@gmail.com';    //email
+        $mail->Password = 'qbrz dvmt otmf sjly';    //16 keys
 
-        $mail->setFrom('sample@mail.com', 'OTP Verification');
+        $mail->setFrom('000phpmailer@gmail.com', 'OTP Verification');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
@@ -82,6 +82,7 @@ if (isset($_POST["verify"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification Account</title>
+    <link rel="icon" href="storage/farmer.png" type="image/x-icon">
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style/icon.css">

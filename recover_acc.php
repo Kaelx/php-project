@@ -45,17 +45,17 @@ if (isset($_POST["recover"])) {
         $mail = new PHPMailer;
 
         $mail->isSMTP();
-        $mail->Host = 'smtp.mail.com';
+        $mail->Host = 'smtp.gmail.com';
         $mail->Port = 587;
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
 
         //account
-        $mail->Username='';  //email
-        $mail->Password='';  //16 keys
+        $mail->Username='000phpmailer@gmail.com';  //email
+        $mail->Password='qbrz dvmt otmf sjly';  //16 keys
 
         //send by
-        $mail->setFrom('sample@mail.com', 'Password Reset');
+        $mail->setFrom('000phpmailer@gmail.com', 'Password Reset');
 
         // get email from input
         $mail->addAddress($_POST["email"]);
@@ -95,6 +95,7 @@ if (isset($_POST["recover"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
+    <link rel="icon" href="storage/farmer.png" type="image/x-icon">
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style/icon.css">
