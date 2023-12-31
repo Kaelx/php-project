@@ -92,7 +92,7 @@ if (isset($_POST["verify"])) {
 
     <nav class="navbar navbar-expand-lg navbar-light bg-success">
         <div class="container">
-            <a class="navbar-brand" href="#">Verification Account</a>
+            <a class="navbar-brand" href="#">Verification</a>
         </div>
     </nav>
 
