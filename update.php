@@ -68,7 +68,7 @@ $conn->close();
     <link rel="stylesheet" href="style/icon.css">
 </head>
 <script src="js/google-map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=[API]&libraries=places&callback=initialize"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo GOOGLE_MAPS_API_KEY; ?>&libraries=places&callback=initialize"></script>
 
 <body>
     <header class="bg-success text-white text-center py-3">
