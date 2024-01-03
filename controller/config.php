@@ -4,7 +4,7 @@ $username = "root";
 $password = "";
 $dbname = "system_proj";
 
-define('GOOGLE_MAPS_API_KEY', 'AIzaSyAr8QQLheQpIlMvXQfEf_0AKOULg7RhsLY');
+define('GOOGLE_MAPS_API_KEY', 'API_KEY');
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
