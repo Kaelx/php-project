@@ -1,5 +1,6 @@
 <?php
 require_once 'controller/config.php';
+
 session_start();
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     if (isset($_SESSION["login_as"])) {
@@ -124,7 +125,7 @@ function logAction($userId, $actionType = null) {
     <link rel="stylesheet" href="style/icon.css">
 </head>
 <script src="js/google-map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr8QQLheQpIlMvXQfEf_0AKOULg7RhsLY&libraries=places&callback=initialize"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo GOOGLE_MAPS_API_KEY; ?>&libraries=places&callback=initialize"></script>
 <script src="js/validate.js"></script>
 
 <body>
