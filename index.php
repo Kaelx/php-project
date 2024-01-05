@@ -1,25 +1,30 @@
 <?php
-require_once 'controller/config.php';
-
+require 'controller/config.php';
 session_start();
+
+
+function redirect($url) {
+    header("Location: $url");
+    exit;
+}
+
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     if (isset($_SESSION["login_as"])) {
-        if ($_SESSION["login_as"] === "seller") {
-            header("location: main-seller.php");
-            exit;
-        } elseif ($_SESSION["login_as"] === "buyer") {
-            header("location: main-buyer.php");
-            exit;
-        } else {
-            header("location: unauth.php");
-            exit;
+        switch ($_SESSION["login_as"]) {
+            case "seller":
+                redirect("main-seller.php");
+                break;
+            case "buyer":
+                redirect("main-buyer.php");
+                break;
+            default:
+                redirect("unauth.php");
         }
     }
 }
-
-
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
