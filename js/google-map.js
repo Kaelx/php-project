@@ -1,9 +1,9 @@
 function initialize() {
     var input = document.getElementById('address');
-    var options = {
+    new google.maps.places.Autocomplete(input, {
+        types: ['geocode'],
         componentRestrictions: {country: "ph"}
-    };
-    var autocomplete = new google.maps.places.Autocomplete(input, options);
+    });
 }
 
 window.initialize = initialize;

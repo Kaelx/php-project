@@ -1,0 +1,8 @@
+#ignore images filetypes
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+#ignore files
+credentials.php

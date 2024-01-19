@@ -1,5 +1,5 @@
 <?php
-
+include_once 'controller/credentials.php';
 session_start();
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     if (isset($_SESSION["login_as"])) {
@@ -50,11 +50,11 @@ if (isset($_POST["recover"])) {
         $mail->SMTPSecure = 'tls';
 
         //account
-        $mail->Username='000phpmailer@gmail.com';  //email
-        $mail->Password='qbrz dvmt otmf sjly';  //16 keys
+        $mail->Username= $mailUsername ;   //email
+        $mail->Password= $mailPassword;    // 16 keys
 
         //send by
-        $mail->setFrom('000phpmailer@gmail.com', 'Password Reset');
+        $mail->setFrom('phpmailer@gmail.com', 'Password Reset');
 
         // get email from input
         $mail->addAddress($_POST["email"]);

@@ -1,5 +1,6 @@
 <?php
 require_once 'controller/config.php';
+require_once 'controller/credentials.php';
 session_start();
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
@@ -32,10 +33,10 @@ if (isset($_POST["resend"])) {
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
 
-        $mail->Username = '000phpmailer@gmail.com';    //email
-        $mail->Password = 'qbrz dvmt otmf sjly';    //16 keys
+        $mail->Username= $mailUsername ;   //email
+        $mail->Password= $mailPassword;    // 16 keys
 
-        $mail->setFrom('000phpmailer@gmail.com', 'OTP Verification');
+        $mail->setFrom('phpmailer@gmail.com', 'OTP Verification');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
