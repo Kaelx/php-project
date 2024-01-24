@@ -118,14 +118,14 @@ function logAction($userId, $actionType = null) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="icon" href="storage/farmer.png" type="image/x-icon">
+    <link rel="icon" href="storage/farmer.png" type="image/x-icon"> 
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style/icon.css">
 </head>
 <script src="js/google-map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo GOOGLE_MAPS_API; ?>&libraries=places&callback=initialize"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo GOOGLE_MAPS_API; ?>&libraries=places&callback=initialize"></script> <!-- add a google map API and define it from the credentials.php -->
 <script src="js/validate.js"></script>
 
 <body>
